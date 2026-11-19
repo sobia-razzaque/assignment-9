@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Q.Bank Account Withdrawal</h2>
+
+<h3>Create a Promise for withdrawing money.
+
+Conditions:
+- Account balance = Rs. 10,000
+- Withdrawal amount = Rs. 7,000
+- If balance is sufficient, resolve the Promise.
+- Otherwise, reject the Promise.
+Use .then() and .catch() to display the result.</h3>
+
+<h2>Q. Online Exam Result</h2>
+
+<h3>Create a Promise that checks student results.
+- Marks 50 or above: Pass.
+- Marks below 50: Fail.
+- Marks greater than 100 or less than 0: Invalid marks.
+Handle the result using .then() and .catch().</h3>
+<h2>Q. Product Delivery System</h2>
+
+<h3>Create a Promise for an online shopping delivery.
+
+Use setTimeout() to simulate a 3-second delivery process.
+- After 3 seconds, resolve with "Product Delivered Successfully".
+- If delivery is unsuccessful, reject with "Delivery Failed".
+Display the result using .then() and .catch().</h3>
+<h2>Q. Promise Chaining</h2>
+<h3>Create a Promise that performs these operations:
+1. Start with a number: 10.
+2. Add 20.
+3. Multiply the result by 2.
+4. Subtract 5.
+5. Display the final result.
+Use Promise chaining with multiple .then() methods.</h3>
+</body>
+<script>
+let balance = 10000;
+let WithdrawalAmount = 7000;
+
+const WithdrawPromise=new Promise(function(resolve,reject){
+    if(balance>=WithdrawalAmount){
+        resolve("withdrawal successsfull");
+    }
+    else{
+        reject("insufficient balance");
+    }
+});
+    WithdrawPromise.then(function(result){
+        console.log(result);
+    }).catch(function(result){
+        console.log(error);
+})
+
+
+let marks=75;
+const resultPromise=new Promise(function(resolve,reject){
+    if(marks>100 ||marks<0){
+        reject("invalid marks");
+    }
+    else if(marks>=50){
+        resolve("pass");
+    }
+    else{
+        reject("fail");
+    }
+});
+resultPromise.then(function(result){
+    console.log(result);
+}).catch(function(error){
+    console.log(error);
+});
+
+const deliveryPromise=new Promise(function(resolve,reject){
+    setTimeout(function(){
+        resolve("product delivered successfully");
+    },3000);
+}); 
+deliveryPromise.then(function(result){
+    console.log(result);
+}).catch(function(error){
+    console.log(error);
+});
+
+const numberPromise=new Promise(function(resolve,reject){
+resolve(10);
+});
+numberPromise.then(function(num){
+return num+20;
+})
+.then(function(num){
+    return num*2;
+})
+.then(function(num){
+    return num-5;
+})
+.then(function(finalResult){
+    console.log("FinalResult"+finalResult);
+});
+</script>
+</html>
